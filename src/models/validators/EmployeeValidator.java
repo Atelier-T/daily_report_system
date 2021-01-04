@@ -12,7 +12,7 @@ public class EmployeeValidator {
     public static List<String> validate(Employee e, Boolean codeDeplicateCheckFlag, Boolean passwardCheckFlag) {
         List<String> errors = new ArrayList<String>();
 
-        String code_error = validateCode(e.getCode(), codeDuplicateCheckFlag);
+        String code_error = validateCode(e.getCode(), codeDeplicateCheckFlag);
         if(!code_error.equals("")) {
             errors.add(code_error);
         }
@@ -22,7 +22,7 @@ public class EmployeeValidator {
             errors.add(name_error);
         }
 
-        String password_error = validatePassword(e.getPassword(), passwordCheckFlag);
+        String password_error = validatePassword(e.getPassword(), passwardCheckFlag);
         if(!password_error.equals("")) {
             errors.add(password_error);
         }
@@ -40,7 +40,7 @@ public class EmployeeValidator {
         // 既に登録されている社員番号との重複チェック
         if(codeDuplicateCheckFlag) {
             EntityManager em = DBUtil.createEntityManager();
-            long employees_count = (long)em.createNamedQuery("checkregisteredCode", Long.class)
+            long employees_count = (long)em.createNamedQuery("checkRegisteredCode", Long.class)
                                             .setParameter("code", code)
                                             .getSingleResult();
             em.close();
