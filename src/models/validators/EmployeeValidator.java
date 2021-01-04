@@ -9,10 +9,10 @@ import models.Employee;
 import utils.DBUtil;
 
 public class EmployeeValidator {
-    public static List<String> validate(Employee e, Boolean codeDeplicateCheckFlag, Boolean passwardCheckFlag) {
+    public static List<String> validate(Employee e, Boolean codeDuplicateCheckFlag, Boolean passwordCheckFlag) {
         List<String> errors = new ArrayList<String>();
 
-        String code_error = validateCode(e.getCode(), codeDeplicateCheckFlag);
+        String code_error = validateCode(e.getCode(), codeDuplicateCheckFlag);
         if(!code_error.equals("")) {
             errors.add(code_error);
         }
@@ -22,7 +22,7 @@ public class EmployeeValidator {
             errors.add(name_error);
         }
 
-        String password_error = validatePassword(e.getPassword(), passwardCheckFlag);
+        String password_error = validatePassword(e.getPassword(), passwordCheckFlag);
         if(!password_error.equals("")) {
             errors.add(password_error);
         }
