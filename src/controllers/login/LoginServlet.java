@@ -97,8 +97,12 @@ public class LoginServlet extends HttpServlet {
             long follows_count = (long)em.createNamedQuery("getFollowersCount", Long.class)
                     .setParameter("follower_id", login_employee)
                     .getSingleResult();
+            long followed_count = (long)em.createNamedQuery("getFollowedCount", Long.class)
+                    .setParameter("follower_id", login_employee)
+                    .getSingleResult();
             em.close();
             request.getSession().setAttribute("follows_count", follows_count);
+            request.getSession().setAttribute("followed_count", followed_count);
 
             request.getSession().setAttribute("flush", "ログインしました。");
             response.sendRedirect(request.getContextPath() + "/");
