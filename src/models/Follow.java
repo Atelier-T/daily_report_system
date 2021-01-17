@@ -7,9 +7,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Table(name = "follows")
+@NamedQueries({
+    @NamedQuery(
+        name = "getAllFollowers",
+        query = "select f from Follow as f order by f.id desc"
+    ),
+    @NamedQuery(
+        name = "getFollowersCount",
+        query = "select count(f) from Follow as f where f.follower_id = :follower_id"
+    )
+})
 
 // ネームドクエリの候補
 // 全取得、フォローユーザの人数、

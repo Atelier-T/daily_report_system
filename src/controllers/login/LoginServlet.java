@@ -91,6 +91,15 @@ public class LoginServlet extends HttpServlet {
             // 認証できたらログイン状態にしてトップページへリダイレクト
             request.getSession().setAttribute("login_employee", e);
 
+            // フォロー中の人数を入れる
+            EntityManager em = DBUtil.createEntityManager();
+            Employee login_employee = (Employee)request.getSession().getAttribute("login_employee");
+            long follows_count = (long)em.createNamedQuery("getFollowersCount", Long.class)
+                    .setParameter("follower_id", login_employee)
+                    .getSingleResult();
+            em.close();
+            request.getSession().setAttribute("follows_count", follows_count);
+
             request.getSession().setAttribute("flush", "ログインしました。");
             response.sendRedirect(request.getContextPath() + "/");
         }
