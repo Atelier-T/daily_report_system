@@ -29,9 +29,6 @@ public class Follow {
     @JoinColumn(name = "followed_id", nullable = false)
     private Employee followed_id;
 
-    @Column(name = "delete_flag", nullable = false)
-    private Integer delete_flag;
-
 
     public Integer getId() {
         return id;
@@ -55,13 +52,5 @@ public class Follow {
 
     public void setFollowed_id(Employee followed_id) {
         this.followed_id = followed_id;
-    }
-
-    public Integer getDelete_flag() {
-        return delete_flag;
-    }
-
-    public void setDelete_flag(Integer delete_flag) {
-        this.delete_flag = delete_flag;
     }
 }
