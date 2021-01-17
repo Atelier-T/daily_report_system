@@ -44,6 +44,15 @@ public class EmpviewIndexServlet extends HttpServlet {
                                     .getResultList();
         long employees_count = (long)em.createNamedQuery("getEmployeesCount", Long.class)
                                         .getSingleResult();
+
+
+        //人数更新
+        Employee login_employee = (Employee)request.getSession().getAttribute("login_employee");
+        long follows_count = (long)em.createNamedQuery("getFollowersCount", Long.class)
+                .setParameter("follower_id", login_employee)
+                .getSingleResult();
+        request.getSession().setAttribute("follows_count", follows_count);
+
         em.close();
 
         request.setAttribute("employees", employees);
