@@ -32,7 +32,7 @@
                             </c:choose>
                         </td>
                         <td>
-                            <button type="submit">フォローする</button>
+                            <a href="<c:url value='/follow/create?id=${employee.id}' />">フォローする</a>
                         </td>
                     </tr>
                 </c:forEach>
