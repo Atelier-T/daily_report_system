@@ -22,13 +22,13 @@ import javax.persistence.Table;
         query = "select count(e) from Employee as e"
     ),
     @NamedQuery(
-            name = "checkRegisteredCode",
-            query = "select count(e) from Employee as e where e.code = :code"
-            ),
+        name = "checkRegisteredCode",
+        query = "select count(e) from Employee as e where e.code = :code"
+    ),
     @NamedQuery(
-            name = "checkLoginCodeAndPassword",
-            query = "select e from Employee as e where e.delete_flag = 0 and e.code = :code and e.password = :pass"
-            )
+        name = "checkLoginCodeAndPassword",
+        query = "select e from Employee as e where e.delete_flag = 0 and e.code = :code and e.password = :pass"
+    )
 })
 @Entity
 public class Employee {

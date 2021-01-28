@@ -18,6 +18,7 @@
                             <a href="<c:url value='/employees/index' />">従業員管理</a>&nbsp;
                         </c:if>
                         <a href="<c:url value='/empview/index' />">従業員情報</a>&nbsp;
+                        <a href="<c:url value='/folreports/index' />">フォロワー日報</a>&nbsp;
                         <a href="<c:url value='/reports/index' />">日報管理</a>&nbsp;
                     </c:if>
                 </div>
