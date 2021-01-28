@@ -27,17 +27,17 @@
                                     (削除済み)
                                 </c:when>
                                 <c:otherwise>
-                                    <a href="<c:url value='/empview/show?id=${employee.id}' />">詳細を表示</a>
+                                    <a href="<c:url value='/employees/show?id=${employee.id}' />">詳細を表示</a>
                                 </c:otherwise>
                             </c:choose>
                         </td>
-                        <td>
+                                                <td>
                             <c:choose>
-                                <c:when test="check_following.getFollowed_id() != ${employee.id}">
-                                    <a href="<c:url value='/follow/create?id=${employee.id}' />">フォローする</a>
+                                <c:when test="${employee.delete_flag ==1}">
+                                    (削除済み)
                                 </c:when>
                                 <c:otherwise>
-                                   <a href="<c:url value='/follow/destroy?id=${employee.id}' />">フォロー解除</a>
+                                    <a href="<c:url value='/follow/create?id=${employee.id}' />">フォローする</a>
                                 </c:otherwise>
                             </c:choose>
                         </td>

@@ -23,7 +23,7 @@ import javax.persistence.Table;
     ),
     @NamedQuery(
         name = "tableFollow",
-        query = "select f from Follow as f where f.followed_id = :follower_id"
+        query = "select f from Follow as f where f.follower_id = :follower_id"
     )
 })
 
